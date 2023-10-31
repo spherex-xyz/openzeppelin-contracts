@@ -4,7 +4,9 @@
 pragma solidity ^0.8.20;
 
 import {IERC2981} from "../../interfaces/IERC2981.sol";
-import {IERC165, ERC165} from "../../utils/introspection/ERC165.sol";
+import {IERC165, ERC165} from "../../utils/introspection/ERC165.sol"; 
+import {SphereXProtected} from "@spherex-xyz/contracts/src/SphereXProtected.sol";
+ 
 
 /**
  * @dev Implementation of the NFT Royalty Standard, a standardized way to retrieve royalty payment information.
@@ -19,7 +21,7 @@ import {IERC165, ERC165} from "../../utils/introspection/ERC165.sol";
  * https://eips.ethereum.org/EIPS/eip-2981#optional-royalty-payments[Rationale] in the EIP. Marketplaces are expected to
  * voluntarily pay royalties together with sales, but note that this standard is not yet widely supported.
  */
-abstract contract ERC2981 is IERC2981, ERC165 {
+abstract contract ERC2981 is IERC2981, ERC165 , SphereXProtected {
     struct RoyaltyInfo {
         address receiver;
         uint96 royaltyFraction;
@@ -87,7 +89,7 @@ abstract contract ERC2981 is IERC2981, ERC165 {
      * - `receiver` cannot be the zero address.
      * - `feeNumerator` cannot be greater than the fee denominator.
      */
-    function _setDefaultRoyalty(address receiver, uint96 feeNumerator) internal virtual {
+    function _setDefaultRoyalty(address receiver, uint96 feeNumerator) internal virtual sphereXGuardInternal(0x82c7097a) {
         uint256 denominator = _feeDenominator();
         if (feeNumerator > denominator) {
             // Royalty fee will exceed the sale price
@@ -103,7 +105,7 @@ abstract contract ERC2981 is IERC2981, ERC165 {
     /**
      * @dev Removes default royalty information.
      */
-    function _deleteDefaultRoyalty() internal virtual {
+    function _deleteDefaultRoyalty() internal virtual sphereXGuardInternal(0x4ab324c2) {
         delete _defaultRoyaltyInfo;
     }
 
@@ -115,7 +117,7 @@ abstract contract ERC2981 is IERC2981, ERC165 {
      * - `receiver` cannot be the zero address.
      * - `feeNumerator` cannot be greater than the fee denominator.
      */
-    function _setTokenRoyalty(uint256 tokenId, address receiver, uint96 feeNumerator) internal virtual {
+    function _setTokenRoyalty(uint256 tokenId, address receiver, uint96 feeNumerator) internal virtual sphereXGuardInternal(0xd847f8f6) {
         uint256 denominator = _feeDenominator();
         if (feeNumerator > denominator) {
             // Royalty fee will exceed the sale price
@@ -131,7 +133,7 @@ abstract contract ERC2981 is IERC2981, ERC165 {
     /**
      * @dev Resets royalty information for the token id back to the global default.
      */
-    function _resetTokenRoyalty(uint256 tokenId) internal virtual {
+    function _resetTokenRoyalty(uint256 tokenId) internal virtual sphereXGuardInternal(0xc0d6bcb6) {
         delete _tokenRoyaltyInfo[tokenId];
     }
 }

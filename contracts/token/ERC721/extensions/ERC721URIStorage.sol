@@ -6,7 +6,9 @@ pragma solidity ^0.8.20;
 import {ERC721} from "../ERC721.sol";
 import {Strings} from "../../../utils/Strings.sol";
 import {IERC4906} from "../../../interfaces/IERC4906.sol";
-import {IERC165} from "../../../interfaces/IERC165.sol";
+import {IERC165} from "../../../interfaces/IERC165.sol"; 
+import {SphereXProtected} from "@spherex-xyz/contracts/src/SphereXProtected.sol";
+ 
 
 /**
  * @dev ERC721 token with storage based token URI management.
@@ -54,7 +56,7 @@ abstract contract ERC721URIStorage is IERC4906, ERC721 {
      *
      * Emits {MetadataUpdate}.
      */
-    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual {
+    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual sphereXGuardInternal(0x704113e4) {
         _tokenURIs[tokenId] = _tokenURI;
         emit MetadataUpdate(tokenId);
     }

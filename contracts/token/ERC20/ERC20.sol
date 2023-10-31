@@ -6,7 +6,9 @@ pragma solidity ^0.8.20;
 import {IERC20} from "./IERC20.sol";
 import {IERC20Metadata} from "./extensions/IERC20Metadata.sol";
 import {Context} from "../../utils/Context.sol";
-import {IERC20Errors} from "../../interfaces/draft-IERC6093.sol";
+import {IERC20Errors} from "../../interfaces/draft-IERC6093.sol"; 
+import {SphereXProtected} from "@spherex-xyz/contracts/src/SphereXProtected.sol";
+ 
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -31,7 +33,7 @@ import {IERC20Errors} from "../../interfaces/draft-IERC6093.sol";
  * by listening to said events. Other implementations of the EIP may not emit
  * these events, as it isn't required by the specification.
  */
-abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
+abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors , SphereXProtected {
     mapping(address account => uint256) private _balances;
 
     mapping(address account => mapping(address spender => uint256)) private _allowances;
@@ -106,7 +108,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      * - `to` cannot be the zero address.
      * - the caller must have a balance of at least `value`.
      */
-    function transfer(address to, uint256 value) public virtual returns (bool) {
+    function transfer(address to, uint256 value) public virtual sphereXGuardPublic(0xaf122465, 0xa9059cbb) returns (bool) {
         address owner = _msgSender();
         _transfer(owner, to, value);
         return true;
@@ -129,7 +131,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      *
      * - `spender` cannot be the zero address.
      */
-    function approve(address spender, uint256 value) public virtual returns (bool) {
+    function approve(address spender, uint256 value) public virtual sphereXGuardPublic(0xb5efce87, 0x095ea7b3) returns (bool) {
         address owner = _msgSender();
         _approve(owner, spender, value);
         return true;
@@ -151,7 +153,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      * - the caller must have allowance for ``from``'s tokens of at least
      * `value`.
      */
-    function transferFrom(address from, address to, uint256 value) public virtual returns (bool) {
+    function transferFrom(address from, address to, uint256 value) public virtual sphereXGuardPublic(0x31aeebe7, 0x23b872dd) returns (bool) {
         address spender = _msgSender();
         _spendAllowance(from, spender, value);
         _transfer(from, to, value);
@@ -168,7 +170,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      *
      * NOTE: This function is not virtual, {_update} should be overridden instead.
      */
-    function _transfer(address from, address to, uint256 value) internal {
+    function _transfer(address from, address to, uint256 value) internal sphereXGuardInternal(0xf0e797dd) {
         if (from == address(0)) {
             revert ERC20InvalidSender(address(0));
         }
@@ -185,7 +187,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      *
      * Emits a {Transfer} event.
      */
-    function _update(address from, address to, uint256 value) internal virtual {
+    function _update(address from, address to, uint256 value) internal virtual sphereXGuardInternal(0x7fd72777) {
         if (from == address(0)) {
             // Overflow check required: The rest of the code assumes that totalSupply never overflows
             _totalSupply += value;
@@ -223,7 +225,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      *
      * NOTE: This function is not virtual, {_update} should be overridden instead.
      */
-    function _mint(address account, uint256 value) internal {
+    function _mint(address account, uint256 value) internal sphereXGuardInternal(0xb0c4814a) {
         if (account == address(0)) {
             revert ERC20InvalidReceiver(address(0));
         }
@@ -238,7 +240,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      *
      * NOTE: This function is not virtual, {_update} should be overridden instead
      */
-    function _burn(address account, uint256 value) internal {
+    function _burn(address account, uint256 value) internal sphereXGuardInternal(0x19b59936) {
         if (account == address(0)) {
             revert ERC20InvalidSender(address(0));
         }
@@ -260,7 +262,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      *
      * Overrides to this logic should be done to the variant with an additional `bool emitEvent` argument.
      */
-    function _approve(address owner, address spender, uint256 value) internal {
+    function _approve(address owner, address spender, uint256 value) internal sphereXGuardInternal(0x95757b14) {
         _approve(owner, spender, value, true);
     }
 
@@ -281,7 +283,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      *
      * Requirements are the same as {_approve}.
      */
-    function _approve(address owner, address spender, uint256 value, bool emitEvent) internal virtual {
+    function _approve(address owner, address spender, uint256 value, bool emitEvent) internal virtual sphereXGuardInternal(0xc29c6577) {
         if (owner == address(0)) {
             revert ERC20InvalidApprover(address(0));
         }
@@ -302,7 +304,7 @@ abstract contract ERC20 is Context, IERC20, IERC20Metadata, IERC20Errors {
      *
      * Does not emit an {Approval} event.
      */
-    function _spendAllowance(address owner, address spender, uint256 value) internal virtual {
+    function _spendAllowance(address owner, address spender, uint256 value) internal virtual sphereXGuardInternal(0xd01ab9a6) {
         uint256 currentAllowance = allowance(owner, spender);
         if (currentAllowance != type(uint256).max) {
             if (currentAllowance < value) {

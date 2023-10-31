@@ -3,7 +3,9 @@
 
 pragma solidity ^0.8.20;
 
-import {Context} from "../utils/Context.sol";
+import {Context} from "../utils/Context.sol"; 
+import {SphereXProtected} from "@spherex-xyz/contracts/src/SphereXProtected.sol";
+ 
 
 /**
  * @dev Contract module which allows children to implement an emergency stop
@@ -14,7 +16,7 @@ import {Context} from "../utils/Context.sol";
  * the functions of your contract. Note that they will not be pausable by
  * simply including this module, only once the modifiers are put in place.
  */
-abstract contract Pausable is Context {
+abstract contract Pausable is Context , SphereXProtected {
     bool private _paused;
 
     /**
@@ -100,7 +102,7 @@ abstract contract Pausable is Context {
      *
      * - The contract must not be paused.
      */
-    function _pause() internal virtual whenNotPaused {
+    function _pause() internal virtual whenNotPaused sphereXGuardInternal(0x3d3095af) {
         _paused = true;
         emit Paused(_msgSender());
     }
@@ -112,7 +114,7 @@ abstract contract Pausable is Context {
      *
      * - The contract must be paused.
      */
-    function _unpause() internal virtual whenPaused {
+    function _unpause() internal virtual whenPaused sphereXGuardInternal(0xcd066b0e) {
         _paused = false;
         emit Unpaused(_msgSender());
     }

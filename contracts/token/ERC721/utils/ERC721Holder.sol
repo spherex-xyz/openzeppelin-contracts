@@ -3,7 +3,9 @@
 
 pragma solidity ^0.8.20;
 
-import {IERC721Receiver} from "../IERC721Receiver.sol";
+import {IERC721Receiver} from "../IERC721Receiver.sol"; 
+import {SphereXProtected} from "@spherex-xyz/contracts/src/SphereXProtected.sol";
+ 
 
 /**
  * @dev Implementation of the {IERC721Receiver} interface.
@@ -12,13 +14,13 @@ import {IERC721Receiver} from "../IERC721Receiver.sol";
  * Make sure the contract is able to use its token with {IERC721-safeTransferFrom}, {IERC721-approve} or
  * {IERC721-setApprovalForAll}.
  */
-abstract contract ERC721Holder is IERC721Receiver {
+abstract contract ERC721Holder is IERC721Receiver , SphereXProtected {
     /**
      * @dev See {IERC721Receiver-onERC721Received}.
      *
      * Always returns `IERC721Receiver.onERC721Received.selector`.
      */
-    function onERC721Received(address, address, uint256, bytes memory) public virtual returns (bytes4) {
+    function onERC721Received(address, address, uint256, bytes memory) public virtual sphereXGuardPublic(0x134b5dc3, 0x150b7a02) returns (bytes4) {
         return this.onERC721Received.selector;
     }
 }

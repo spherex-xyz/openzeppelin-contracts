@@ -9,14 +9,16 @@ import {IERC721Metadata} from "./extensions/IERC721Metadata.sol";
 import {Context} from "../../utils/Context.sol";
 import {Strings} from "../../utils/Strings.sol";
 import {IERC165, ERC165} from "../../utils/introspection/ERC165.sol";
-import {IERC721Errors} from "../../interfaces/draft-IERC6093.sol";
+import {IERC721Errors} from "../../interfaces/draft-IERC6093.sol"; 
+import {SphereXProtected} from "@spherex-xyz/contracts/src/SphereXProtected.sol";
+ 
 
 /**
  * @dev Implementation of https://eips.ethereum.org/EIPS/eip-721[ERC721] Non-Fungible Token Standard, including
  * the Metadata extension, but not including the Enumerable extension, which is available separately as
  * {ERC721Enumerable}.
  */
-abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Errors {
+abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Errors , SphereXProtected {
     using Strings for uint256;
 
     // Token name
@@ -104,7 +106,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
     /**
      * @dev See {IERC721-approve}.
      */
-    function approve(address to, uint256 tokenId) public virtual {
+    function approve(address to, uint256 tokenId) public virtual sphereXGuardPublic(0x297329f1, 0x095ea7b3) {
         _approve(to, tokenId, _msgSender());
     }
 
@@ -120,7 +122,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
     /**
      * @dev See {IERC721-setApprovalForAll}.
      */
-    function setApprovalForAll(address operator, bool approved) public virtual {
+    function setApprovalForAll(address operator, bool approved) public virtual sphereXGuardPublic(0xd2a26733, 0xa22cb465) {
         _setApprovalForAll(_msgSender(), operator, approved);
     }
 
@@ -134,7 +136,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
     /**
      * @dev See {IERC721-transferFrom}.
      */
-    function transferFrom(address from, address to, uint256 tokenId) public virtual {
+    function transferFrom(address from, address to, uint256 tokenId) public virtual sphereXGuardPublic(0xf09dc450, 0x23b872dd) {
         if (to == address(0)) {
             revert ERC721InvalidReceiver(address(0));
         }
@@ -149,14 +151,14 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
     /**
      * @dev See {IERC721-safeTransferFrom}.
      */
-    function safeTransferFrom(address from, address to, uint256 tokenId) public {
+    function safeTransferFrom(address from, address to, uint256 tokenId) public sphereXGuardPublic(0xb60a956e, 0x42842e0e) {
         safeTransferFrom(from, to, tokenId, "");
     }
 
     /**
      * @dev See {IERC721-safeTransferFrom}.
      */
-    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory data) public virtual {
+    function safeTransferFrom(address from, address to, uint256 tokenId, bytes memory data) public virtual sphereXGuardPublic(0x017ce98b, 0xb88d4fde) {
         transferFrom(from, to, tokenId);
         _checkOnERC721Received(from, to, tokenId, data);
     }
@@ -221,7 +223,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      * {_ownerOf} function to resolve the ownership of the corresponding tokens so that balances and ownership
      * remain consistent with one another.
      */
-    function _increaseBalance(address account, uint128 value) internal virtual {
+    function _increaseBalance(address account, uint128 value) internal virtual sphereXGuardInternal(0x7bdb7ae0) {
         unchecked {
             _balances[account] += value;
         }
@@ -238,7 +240,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      *
      * NOTE: If overriding this function in a way that tracks balances, see also {_increaseBalance}.
      */
-    function _update(address to, uint256 tokenId, address auth) internal virtual returns (address) {
+    function _update(address to, uint256 tokenId, address auth) internal virtual sphereXGuardInternal(0x28107f71) returns (address) {
         address from = _ownerOf(tokenId);
 
         // Perform (optional) operator check
@@ -281,7 +283,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      *
      * Emits a {Transfer} event.
      */
-    function _mint(address to, uint256 tokenId) internal {
+    function _mint(address to, uint256 tokenId) internal sphereXGuardInternal(0x39c487b3) {
         if (to == address(0)) {
             revert ERC721InvalidReceiver(address(0));
         }
@@ -301,7 +303,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      *
      * Emits a {Transfer} event.
      */
-    function _safeMint(address to, uint256 tokenId) internal {
+    function _safeMint(address to, uint256 tokenId) internal sphereXGuardInternal(0x257c05c4) {
         _safeMint(to, tokenId, "");
     }
 
@@ -309,7 +311,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      * @dev Same as {xref-ERC721-_safeMint-address-uint256-}[`_safeMint`], with an additional `data` parameter which is
      * forwarded in {IERC721Receiver-onERC721Received} to contract recipients.
      */
-    function _safeMint(address to, uint256 tokenId, bytes memory data) internal virtual {
+    function _safeMint(address to, uint256 tokenId, bytes memory data) internal virtual sphereXGuardInternal(0x49874bcb) {
         _mint(to, tokenId);
         _checkOnERC721Received(address(0), to, tokenId, data);
     }
@@ -325,7 +327,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      *
      * Emits a {Transfer} event.
      */
-    function _burn(uint256 tokenId) internal {
+    function _burn(uint256 tokenId) internal sphereXGuardInternal(0x2fb0965d) {
         address previousOwner = _update(address(0), tokenId, address(0));
         if (previousOwner == address(0)) {
             revert ERC721NonexistentToken(tokenId);
@@ -343,7 +345,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      *
      * Emits a {Transfer} event.
      */
-    function _transfer(address from, address to, uint256 tokenId) internal {
+    function _transfer(address from, address to, uint256 tokenId) internal sphereXGuardInternal(0xb1ad8318) {
         if (to == address(0)) {
             revert ERC721InvalidReceiver(address(0));
         }
@@ -374,7 +376,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      *
      * Emits a {Transfer} event.
      */
-    function _safeTransfer(address from, address to, uint256 tokenId) internal {
+    function _safeTransfer(address from, address to, uint256 tokenId) internal sphereXGuardInternal(0x7e0a2498) {
         _safeTransfer(from, to, tokenId, "");
     }
 
@@ -382,7 +384,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      * @dev Same as {xref-ERC721-_safeTransfer-address-address-uint256-}[`_safeTransfer`], with an additional `data` parameter which is
      * forwarded in {IERC721Receiver-onERC721Received} to contract recipients.
      */
-    function _safeTransfer(address from, address to, uint256 tokenId, bytes memory data) internal virtual {
+    function _safeTransfer(address from, address to, uint256 tokenId, bytes memory data) internal virtual sphereXGuardInternal(0x094bb057) {
         _transfer(from, to, tokenId);
         _checkOnERC721Received(from, to, tokenId, data);
     }
@@ -397,7 +399,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      *
      * Overrides to this logic should be done to the variant with an additional `bool emitEvent` argument.
      */
-    function _approve(address to, uint256 tokenId, address auth) internal {
+    function _approve(address to, uint256 tokenId, address auth) internal sphereXGuardInternal(0xfaf394cb) {
         _approve(to, tokenId, auth, true);
     }
 
@@ -405,7 +407,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      * @dev Variant of `_approve` with an optional flag to enable or disable the {Approval} event. The event is not
      * emitted in the context of transfers.
      */
-    function _approve(address to, uint256 tokenId, address auth, bool emitEvent) internal virtual {
+    function _approve(address to, uint256 tokenId, address auth, bool emitEvent) internal virtual sphereXGuardInternal(0xc3df6f5e) {
         // Avoid reading the owner unless necessary
         if (emitEvent || auth != address(0)) {
             address owner = _requireOwned(tokenId);
@@ -431,7 +433,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      *
      * Emits an {ApprovalForAll} event.
      */
-    function _setApprovalForAll(address owner, address operator, bool approved) internal virtual {
+    function _setApprovalForAll(address owner, address operator, bool approved) internal virtual sphereXGuardInternal(0xa5a6e273) {
         if (operator == address(0)) {
             revert ERC721InvalidOperator(operator);
         }
@@ -462,7 +464,7 @@ abstract contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Er
      * @param tokenId uint256 ID of the token to be transferred
      * @param data bytes optional data to send along with the call
      */
-    function _checkOnERC721Received(address from, address to, uint256 tokenId, bytes memory data) private {
+    function _checkOnERC721Received(address from, address to, uint256 tokenId, bytes memory data) private sphereXGuardInternal(0xf51728c8) {
         if (to.code.length > 0) {
             try IERC721Receiver(to).onERC721Received(_msgSender(), from, tokenId, data) returns (bytes4 retval) {
                 if (retval != IERC721Receiver.onERC721Received.selector) {

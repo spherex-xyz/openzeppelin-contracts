@@ -5,7 +5,9 @@ pragma solidity ^0.8.20;
 
 import {ERC721} from "../ERC721.sol";
 import {IERC721Enumerable} from "./IERC721Enumerable.sol";
-import {IERC165} from "../../../utils/introspection/ERC165.sol";
+import {IERC165} from "../../../utils/introspection/ERC165.sol"; 
+import {SphereXProtected} from "@spherex-xyz/contracts/src/SphereXProtected.sol";
+ 
 
 /**
  * @dev This implements an optional extension of {ERC721} defined in the EIP that adds enumerability
@@ -70,7 +72,7 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
     /**
      * @dev See {ERC721-_update}.
      */
-    function _update(address to, uint256 tokenId, address auth) internal virtual override returns (address) {
+    function _update(address to, uint256 tokenId, address auth) internal virtual override sphereXGuardInternal(0x9d657090) returns (address) {
         address previousOwner = super._update(to, tokenId, auth);
 
         if (previousOwner == address(0)) {
@@ -92,7 +94,7 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
      * @param to address representing the new owner of the given token ID
      * @param tokenId uint256 ID of the token to be added to the tokens list of the given address
      */
-    function _addTokenToOwnerEnumeration(address to, uint256 tokenId) private {
+    function _addTokenToOwnerEnumeration(address to, uint256 tokenId) private sphereXGuardInternal(0x705efd27) {
         uint256 length = balanceOf(to) - 1;
         _ownedTokens[to][length] = tokenId;
         _ownedTokensIndex[tokenId] = length;
@@ -102,7 +104,7 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
      * @dev Private function to add a token to this extension's token tracking data structures.
      * @param tokenId uint256 ID of the token to be added to the tokens list
      */
-    function _addTokenToAllTokensEnumeration(uint256 tokenId) private {
+    function _addTokenToAllTokensEnumeration(uint256 tokenId) private sphereXGuardInternal(0x9176a292) {
         _allTokensIndex[tokenId] = _allTokens.length;
         _allTokens.push(tokenId);
     }
@@ -115,7 +117,7 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
      * @param from address representing the previous owner of the given token ID
      * @param tokenId uint256 ID of the token to be removed from the tokens list of the given address
      */
-    function _removeTokenFromOwnerEnumeration(address from, uint256 tokenId) private {
+    function _removeTokenFromOwnerEnumeration(address from, uint256 tokenId) private sphereXGuardInternal(0xe4f33835) {
         // To prevent a gap in from's tokens array, we store the last token in the index of the token to delete, and
         // then delete the last slot (swap and pop).
 
@@ -140,7 +142,7 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
      * This has O(1) time complexity, but alters the order of the _allTokens array.
      * @param tokenId uint256 ID of the token to be removed from the tokens list
      */
-    function _removeTokenFromAllTokensEnumeration(uint256 tokenId) private {
+    function _removeTokenFromAllTokensEnumeration(uint256 tokenId) private sphereXGuardInternal(0xc76d3c55) {
         // To prevent a gap in the tokens array, we store the last token in the index of the token to delete, and
         // then delete the last slot (swap and pop).
 
@@ -163,7 +165,7 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
     /**
      * See {ERC721-_increaseBalance}. We need that to account tokens that were minted in batch
      */
-    function _increaseBalance(address account, uint128 amount) internal virtual override {
+    function _increaseBalance(address account, uint128 amount) internal virtual override sphereXGuardInternal(0x2ae6ffff) {
         if (amount > 0) {
             revert ERC721EnumerableForbiddenBatchMint();
         }
