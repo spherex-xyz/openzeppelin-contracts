@@ -82,8 +82,9 @@ module.exports = {
     '*': {
       'code-size': withOptimizations,
       'unused-param': !argv.coverage, // coverage causes unused-param warnings
+      'shadowing': 'warn',
       default: 'error',
-    },
+    }
   },
   networks: {
     hardhat: {

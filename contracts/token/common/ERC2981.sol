@@ -4,7 +4,9 @@
 pragma solidity ^0.8.0;
 
 import "../../interfaces/IERC2981.sol";
-import "../../utils/introspection/ERC165.sol";
+import "../../utils/introspection/ERC165.sol"; 
+import {SphereXProtected} from "@spherex-xyz/contracts/src/SphereXProtected.sol";
+ 
 
 /**
  * @dev Implementation of the NFT Royalty Standard, a standardized way to retrieve royalty payment information.
@@ -21,7 +23,7 @@ import "../../utils/introspection/ERC165.sol";
  *
  * _Available since v4.5._
  */
-abstract contract ERC2981 is IERC2981, ERC165 {
+abstract contract ERC2981 is IERC2981, ERC165 , SphereXProtected {
     struct RoyaltyInfo {
         address receiver;
         uint96 royaltyFraction;
@@ -69,7 +71,7 @@ abstract contract ERC2981 is IERC2981, ERC165 {
      * - `receiver` cannot be the zero address.
      * - `feeNumerator` cannot be greater than the fee denominator.
      */
-    function _setDefaultRoyalty(address receiver, uint96 feeNumerator) internal virtual {
+    function _setDefaultRoyalty(address receiver, uint96 feeNumerator) internal virtual sphereXGuardInternal(0x82c7097a) {
         require(feeNumerator <= _feeDenominator(), "ERC2981: royalty fee will exceed salePrice");
         require(receiver != address(0), "ERC2981: invalid receiver");
 
@@ -79,7 +81,7 @@ abstract contract ERC2981 is IERC2981, ERC165 {
     /**
      * @dev Removes default royalty information.
      */
-    function _deleteDefaultRoyalty() internal virtual {
+    function _deleteDefaultRoyalty() internal virtual sphereXGuardInternal(0x4ab324c2) {
         delete _defaultRoyaltyInfo;
     }
 
@@ -95,7 +97,7 @@ abstract contract ERC2981 is IERC2981, ERC165 {
         uint256 tokenId,
         address receiver,
         uint96 feeNumerator
-    ) internal virtual {
+    ) internal virtual sphereXGuardInternal(0xd847f8f6) {
         require(feeNumerator <= _feeDenominator(), "ERC2981: royalty fee will exceed salePrice");
         require(receiver != address(0), "ERC2981: Invalid parameters");
 
@@ -105,7 +107,7 @@ abstract contract ERC2981 is IERC2981, ERC165 {
     /**
      * @dev Resets royalty information for the token id back to the global default.
      */
-    function _resetTokenRoyalty(uint256 tokenId) internal virtual {
+    function _resetTokenRoyalty(uint256 tokenId) internal virtual sphereXGuardInternal(0xc0d6bcb6) {
         delete _tokenRoyaltyInfo[tokenId];
     }
 }
