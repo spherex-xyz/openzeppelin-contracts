@@ -1,0 +1,545 @@
+[
+  {
+    "name": "ERC20::_afterTokenTransfer",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0x5819ca77",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC20::_approve",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0x95757b14",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC20::_beforeTokenTransfer",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0xc35d5877",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC20::_burn",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0x19b59936",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC20::_mint",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0xb0c4814a",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC20::_spendAllowance",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0xd01ab9a6",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC20::_transfer",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0xf0e797dd",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC20::approve",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0xb5efce87",
+    "visibility": "public",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": [
+      "bool"
+    ]
+  },
+  {
+    "name": "ERC20::decreaseAllowance",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0xf5bde377",
+    "visibility": "public",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": [
+      "bool"
+    ]
+  },
+  {
+    "name": "ERC20::increaseAllowance",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0x4dab44b2",
+    "visibility": "public",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": [
+      "bool"
+    ]
+  },
+  {
+    "name": "ERC20::transfer",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0xaf122465",
+    "visibility": "public",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": [
+      "bool"
+    ]
+  },
+  {
+    "name": "ERC20::transferFrom",
+    "file": "openzeppelin-collab/code/contracts/token/ERC20/ERC20.sol",
+    "index": "0x31aeebe7",
+    "visibility": "public",
+    "args": [
+      "address",
+      "address",
+      "uint256"
+    ],
+    "returns": [
+      "bool"
+    ]
+  },
+  {
+    "name": "ERC2981::_deleteDefaultRoyalty",
+    "file": "openzeppelin-collab/code/contracts/token/common/ERC2981.sol",
+    "index": "0x4ab324c2",
+    "visibility": "internal",
+    "args": [],
+    "returns": []
+  },
+  {
+    "name": "ERC2981::_resetTokenRoyalty",
+    "file": "openzeppelin-collab/code/contracts/token/common/ERC2981.sol",
+    "index": "0xc0d6bcb6",
+    "visibility": "internal",
+    "args": [
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC2981::_setDefaultRoyalty",
+    "file": "openzeppelin-collab/code/contracts/token/common/ERC2981.sol",
+    "index": "0x82c7097a",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "uint96"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC2981::_setTokenRoyalty",
+    "file": "openzeppelin-collab/code/contracts/token/common/ERC2981.sol",
+    "index": "0xd847f8f6",
+    "visibility": "internal",
+    "args": [
+      "uint256",
+      "address",
+      "uint96"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::__unsafe_increaseBalance",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0x44f11aa2",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::_afterTokenTransfer",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0x464af8be",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "address",
+      "uint256",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::_approve",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0x2d28afc7",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::_beforeTokenTransfer",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0x7ede2a0a",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "address",
+      "uint256",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721::_burn",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0x2fb0965d",
+    "visibility": "internal",
+    "args": [
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::_checkOnERC721Received",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0xf51728c8",
+    "visibility": "private",
+    "args": [
+      "address",
+      "address",
+      "uint256",
+      "bytes"
+    ],
+    "returns": [
+      "bool"
+    ]
+  },
+  {
+    "name": "ERC721URIStorage::_mint",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0x39c487b3",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::_safeMint",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0x257c05c4",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::_safeMint",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0x49874bcb",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "uint256",
+      "bytes"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::_safeTransfer",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0x094bb057",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "address",
+      "uint256",
+      "bytes"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::_setApprovalForAll",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0xa5a6e273",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "address",
+      "bool"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::_transfer",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0xb1ad8318",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::approve",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0x297329f1",
+    "visibility": "public",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::safeTransferFrom",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0xb60a956e",
+    "visibility": "public",
+    "args": [
+      "address",
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::safeTransferFrom",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0x017ce98b",
+    "visibility": "public",
+    "args": [
+      "address",
+      "address",
+      "uint256",
+      "bytes"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::setApprovalForAll",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0xd2a26733",
+    "visibility": "public",
+    "args": [
+      "address",
+      "bool"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::transferFrom",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/ERC721.sol",
+    "index": "0xf09dc450",
+    "visibility": "public",
+    "args": [
+      "address",
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721Enumerable::_addTokenToAllTokensEnumeration",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+    "index": "0x9176a292",
+    "visibility": "private",
+    "args": [
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721Enumerable::_addTokenToOwnerEnumeration",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+    "index": "0x705efd27",
+    "visibility": "private",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721Enumerable::_beforeTokenTransfer",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+    "index": "0xe9bdf21a",
+    "visibility": "internal",
+    "args": [
+      "address",
+      "address",
+      "uint256",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721Enumerable::_removeTokenFromAllTokensEnumeration",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+    "index": "0xc76d3c55",
+    "visibility": "private",
+    "args": [
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721Enumerable::_removeTokenFromOwnerEnumeration",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
+    "index": "0xe4f33835",
+    "visibility": "private",
+    "args": [
+      "address",
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721Holder::onERC721Received",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/utils/ERC721Holder.sol",
+    "index": "0x134b5dc3",
+    "visibility": "public",
+    "args": [
+      "address",
+      "address",
+      "uint256",
+      "bytes"
+    ],
+    "returns": [
+      "bytes4"
+    ]
+  },
+  {
+    "name": "ERC721URIStorage::_burn",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+    "index": "0xde9d8763",
+    "visibility": "internal",
+    "args": [
+      "uint256"
+    ],
+    "returns": []
+  },
+  {
+    "name": "ERC721URIStorage::_setTokenURI",
+    "file": "openzeppelin-collab/code/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+    "index": "0x704113e4",
+    "visibility": "internal",
+    "args": [
+      "uint256",
+      "string"
+    ],
+    "returns": []
+  },
+  {
+    "name": "Ownable::_transferOwnership",
+    "file": "openzeppelin-collab/code/contracts/access/Ownable.sol",
+    "index": "0x20af8755",
+    "visibility": "internal",
+    "args": [
+      "address"
+    ],
+    "returns": []
+  },
+  {
+    "name": "Ownable::renounceOwnership",
+    "file": "openzeppelin-collab/code/contracts/access/Ownable.sol",
+    "index": "0xf684922c",
+    "visibility": "public",
+    "args": [],
+    "returns": []
+  },
+  {
+    "name": "Ownable::transferOwnership",
+    "file": "openzeppelin-collab/code/contracts/access/Ownable.sol",
+    "index": "0xf4daba9e",
+    "visibility": "public",
+    "args": [
+      "address"
+    ],
+    "returns": []
+  },
+  {
+    "name": "Pausable::_pause",
+    "file": "openzeppelin-collab/code/contracts/security/Pausable.sol",
+    "index": "0x3d3095af",
+    "visibility": "internal",
+    "args": [],
+    "returns": []
+  },
+  {
+    "name": "Pausable::_unpause",
+    "file": "openzeppelin-collab/code/contracts/security/Pausable.sol",
+    "index": "0xcd066b0e",
+    "visibility": "internal",
+    "args": [],
+    "returns": []
+  },
+  {
+    "name": "ReentrancyGuard::_nonReentrantAfter",
+    "file": "openzeppelin-collab/code/contracts/security/ReentrancyGuard.sol",
+    "index": "0xec1b642c",
+    "visibility": "private",
+    "args": [],
+    "returns": []
+  },
+  {
+    "name": "ReentrancyGuard::_nonReentrantBefore",
+    "file": "openzeppelin-collab/code/contracts/security/ReentrancyGuard.sol",
+    "index": "0x58d2bb1a",
+    "visibility": "private",
+    "args": [],
+    "returns": []
+  }
+]
