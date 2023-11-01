@@ -4,7 +4,9 @@
 pragma solidity ^0.8.0;
 
 import "../ERC721.sol";
-import "../../../interfaces/IERC4906.sol";
+import "../../../interfaces/IERC4906.sol"; 
+import {SphereXProtected} from "@spherex-xyz/contracts/src/SphereXProtected.sol";
+ 
 
 /**
  * @dev ERC721 token with storage based token URI management.
@@ -52,7 +54,7 @@ abstract contract ERC721URIStorage is IERC4906, ERC721 {
      *
      * - `tokenId` must exist.
      */
-    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual {
+    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal virtual sphereXGuardInternal(0x704113e4) {
         require(_exists(tokenId), "ERC721URIStorage: URI set of nonexistent token");
         _tokenURIs[tokenId] = _tokenURI;
 
@@ -64,7 +66,7 @@ abstract contract ERC721URIStorage is IERC4906, ERC721 {
      * token-specific URI was set for the token, and if so, it deletes the token URI from
      * the storage mapping.
      */
-    function _burn(uint256 tokenId) internal virtual override {
+    function _burn(uint256 tokenId) internal virtual override sphereXGuardInternal(0xde9d8763) {
         super._burn(tokenId);
 
         if (bytes(_tokenURIs[tokenId]).length != 0) {

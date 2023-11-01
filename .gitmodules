@@ -5,3 +5,6 @@
 [submodule "lib/erc4626-tests"]
 	path = lib/erc4626-tests
 	url = https://github.com/a16z/erc4626-tests.git
+[submodule "lib/spherex-protect-contracts"]
+	path = lib/spherex-protect-contracts
+	url = https://github.com/spherex-xyz/spherex-protect-contracts

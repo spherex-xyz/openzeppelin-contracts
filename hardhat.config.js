@@ -50,7 +50,7 @@ const argv = require('yargs/yargs')()
 
 require('@nomiclabs/hardhat-truffle5');
 require('hardhat-ignore-warnings');
-require('hardhat-exposed');
+// require('hardhat-exposed');
 
 require('solidity-docgen');
 
@@ -82,6 +82,7 @@ module.exports = {
     '*': {
       'code-size': withOptimizations,
       'unused-param': !argv.coverage, // coverage causes unused-param warnings
+      'shadowing': 'warn',
       default: 'error',
     },
   },
@@ -91,14 +92,14 @@ module.exports = {
       allowUnlimitedContractSize: !withOptimizations,
     },
   },
-  exposed: {
-    initializers: true,
-    exclude: [
-      'vendor/**/*',
-      // Exclude Timers from hardhat-exposed because its overloaded functions are not transformed correctly
-      'utils/Timers{,Upgradeable}.sol',
-    ],
-  },
+  // exposed: {
+  //   initializers: true,
+  //   exclude: [
+  //     'vendor/**/*',
+  //     // Exclude Timers from hardhat-exposed because its overloaded functions are not transformed correctly
+  //     'utils/Timers{,Upgradeable}.sol',
+  //   ],
+  // },
   docgen: require('./docs/config'),
 };
 

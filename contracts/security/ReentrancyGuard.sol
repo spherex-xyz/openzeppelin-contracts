@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts (last updated v4.9.0) (security/ReentrancyGuard.sol)
 
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.0; 
+import {SphereXProtected} from "@spherex-xyz/contracts/src/SphereXProtected.sol";
+ 
 
 /**
  * @dev Contract module that helps prevent reentrant calls to a function.
@@ -19,7 +21,7 @@ pragma solidity ^0.8.0;
  * to protect against it, check out our blog post
  * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].
  */
-abstract contract ReentrancyGuard {
+abstract contract ReentrancyGuard is SphereXProtected {
     // Booleans are more expensive than uint256 or any type that takes up a full
     // word because each write operation emits an extra SLOAD to first read the
     // slot's contents, replace the bits taken up by the boolean, and then write
@@ -53,7 +55,7 @@ abstract contract ReentrancyGuard {
         _nonReentrantAfter();
     }
 
-    function _nonReentrantBefore() private {
+    function _nonReentrantBefore() private sphereXGuardInternal(0x58d2bb1a) {
         // On the first call to nonReentrant, _status will be _NOT_ENTERED
         require(_status != _ENTERED, "ReentrancyGuard: reentrant call");
 
@@ -61,7 +63,7 @@ abstract contract ReentrancyGuard {
         _status = _ENTERED;
     }
 
-    function _nonReentrantAfter() private {
+    function _nonReentrantAfter() private sphereXGuardInternal(0xec1b642c) {
         // By storing the original value once again, a refund is triggered (see
         // https://eips.ethereum.org/EIPS/eip-2200)
         _status = _NOT_ENTERED;
